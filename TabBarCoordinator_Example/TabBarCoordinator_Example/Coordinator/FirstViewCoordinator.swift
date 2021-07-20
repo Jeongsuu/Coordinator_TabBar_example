@@ -22,7 +22,7 @@ class FirstViewCoordinator: Coordinator {
 
     func startPush() -> UINavigationController {
         let firstViewController = FirstViewController()
-        firstViewController.delegate = self
+        firstViewController.coordinator = self
         firstViewController.view.backgroundColor = .white
         navigationController.setViewControllers([firstViewController], animated: false)
 
@@ -30,7 +30,8 @@ class FirstViewCoordinator: Coordinator {
     }
 }
 
-extension FirstViewCoordinator: FirstViewModelDelegate {
+// MARK: - Depth 1 Method
+extension FirstViewCoordinator {
     func pushFourthVC() {
         let fourthViewCoordinator = FourthViewCoordinator(navigationController: navigationController)
         fourthViewCoordinator.parentCoordinator = self

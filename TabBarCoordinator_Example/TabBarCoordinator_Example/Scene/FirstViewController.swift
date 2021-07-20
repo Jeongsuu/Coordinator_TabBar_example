@@ -7,17 +7,10 @@
 
 import UIKit
 
-protocol FirstViewModelDelegate: AnyObject {
-    func pushFourthVC()
-}
-
 class FirstViewController: UIViewController {
-    weak var coordinator: Coordinator?
+    weak var coordinator: FirstViewCoordinator?
     private weak var titleLabel: UILabel!
     private weak var button: UIButton!
-
-    weak var delegate: FirstViewModelDelegate?
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,8 +43,7 @@ class FirstViewController: UIViewController {
     }
 
     @objc func pushFourthVC() {
-        delegate?.pushFourthVC()
+        coordinator?.pushFourthVC()
     }
-
 }
 
